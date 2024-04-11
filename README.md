@@ -166,7 +166,32 @@ export default App;
 
 ## 라우팅 구성
 
+## 설정
+
+- src.index.js : BrowerRouter 컴포넌트로 감싸기
+
+```Jsx
+...
+
+import { BrowserRouter } from 'react-router-dom';
+
+...
+
+
+```
+
 ## 회원
 
 - /member/join : 회원가입
 - /member/login : 로그인
+
+## 없는 페이지
+
+- ＊ : 없는 페이지 - commons/pages/NotFound.js
+
+## 에러페이지
+
+> class형 컴포넌트 - componentDidCatch 사용
+
+- commons/pages/Error.js
+- commons/components/ErrorDisplay.js
