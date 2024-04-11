@@ -21,8 +21,7 @@
 - immer : 불변성 관리
 - ract-icons : 리액트에서 제공하는 아이콘 라이브러리
 - @loadable / component : 지연로딩
-- helmet-async : head 태그 내의 내용을 변경 시
-
+- react-helmet-async : head 태그 내의 내용을 변경 시
 - 의존성 설치
 
 ```
@@ -31,8 +30,6 @@ yarn add react-helmet-async
 ```
 
 ## react-helmet-async 설정
-
-- 사용법
 
 - src/index.js
 
@@ -51,6 +48,24 @@ root.render(
   </React.StrictMode>,
 );
 
+```
+
+- 사용법
+
+```javascript
+import { Helmet } from 'react-helmet-async';
+
+const App = () => {
+  return (
+    <>
+      <Helmet>
+        <title>사이트 제목 변경 테스트!</title>
+      </Helmet>
+    </>
+  );
+};
+
+export default App;
 ```
 
 ## 메세지, 다국어 추리
@@ -114,3 +129,31 @@ import './i18n';
 - 적용하기 : useTranslation 훅 / react-i18next
   - t : 메세지 조회 함수
   - i18n : 편의 기능 객체, changeLanguage(..) : 언어 변경
+
+```javascript
+import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+
+const App = () => {
+  const { t, i18n } = useTranslation();
+
+  return (
+    <>
+      <Helmet>
+        <title>사이트 제목 변경 테스트!</title>
+      </Helmet>
+      <div>{t('아이디')}</div>
+      <div>{t('약관에_동의')}</div>
+      <div>{t('없는_문구')}</div>
+      <button type="button" onClick={() => i18n.changeLanguage('ko')}>
+        한국어
+      </button>
+      <button type="button" onClick={() => i18n.changeLanguage('en')}>
+        English
+      </button>
+    </>
+  );
+};
+
+export default App;
+```
