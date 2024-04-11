@@ -19,8 +19,8 @@ const App = () => {
         <Route index element={<Main />} /> {/* 메인 페이지 */}
         {/* 회원 페이지 S */}
         <Route path="member">
-          <Route path="Join" element={<Join />} />
-          <Route path="Login" element={<Login />} />
+          <Route path="join" element={<Join />} />
+          <Route path="login" element={<Login />} />
         </Route>
         {/* 회원 페이지 E */}
         <Route path="*" element={<NotFound />} /> {/* 없는 페이지 */}
