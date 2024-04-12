@@ -1,14 +1,14 @@
 /* 공통으로 적용할 부분들을 정의 */
-@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300;500;700&display=swap');
 
 * {
   box-sizing: border-box;
   outline: none;
-  font-family: "Dongle", sans-serif;
+  font-family: "Sunflower", sans-serif;
 }
 
 html {
-  font-size: 30px;
+  font-size: 15px;
 }
 
 body {
@@ -32,4 +32,10 @@ a {
 
 img {
   border: 0;
+}
+
+.layout-width{
+  max-width: 1200px;
+  min-width: 400px;
+  margin: 0 auto;
 }
