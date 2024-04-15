@@ -1,9 +1,9 @@
-import React, { Componenet } from 'react';
+import React, { Component } from 'react';
 import loadable from '@loadable/component';
 
 const ErrorDisplay = loadable(() => import('../components/ErrorThisplay'));
 
-class ErrorPage extends Componenet {
+class ErrorPage extends Component {
   state = {
     message: '',
   };
