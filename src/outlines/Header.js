@@ -55,7 +55,7 @@ const HeaderBox = styled.header`
           border-bottom-right-radius: 10px;
           border-top-right-radius: 10px;
 
-          &.on {
+          &:hover {
             background: ${primary};
           }
 
@@ -106,10 +106,7 @@ const Header = () => {
 
           <form autoComplete="off">
             <input type="text"></input>
-            <button
-              type="submit"
-              className={({ isActive }) => classNames({ on: isActive })}
-            >
+            <button type="submit">
               <IoSearch />
             </button>
           </form>
