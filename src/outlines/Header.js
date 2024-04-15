@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
+import { IoSearch } from 'react-icons/io5';
 import fontSize from '../styles/fontSize';
 import { color } from '../styles/color';
 import logo from '../images/logo.png';
-import { IoSearch } from 'react-icons/io5';
+import MainMenu from './MainMenu';
 
-const { primary, dark, light } = color;
+const { primary, dark, light, purple } = color;
 
 const HeaderBox = styled.header`
   .site-top {
@@ -46,15 +47,30 @@ const HeaderBox = styled.header`
 
         button {
           width: 45px;
-          background: #9b7cc9;
-          color: ${light};
-          border: 1px solid #767676;
-          margin-left: 1px;
-          border-radius: 2px;
+          background: ${purple};
+          border: 2px solid ${dark};
+          border-left: none;
+          margin-right: 10px;
+          cursor: pointer;
+          border-bottom-right-radius: 10px;
+          border-top-right-radius: 10px;
+
+          &.on {
+            background: ${primary};
+          }
+
+          svg {
+            color: ${light};
+            font-size: 1.3rem;
+          }
         }
 
         input[type='text'] {
           flex-grow: 1;
+          border: 2px solid ${dark};
+          border-bottom-left-radius: 10px;
+          border-top-left-radius: 10px;
+          padding: 0 10px;
         }
       }
     }
@@ -90,12 +106,16 @@ const Header = () => {
 
           <form autoComplete="off">
             <input type="text"></input>
-            <button type="submit">
+            <button
+              type="submit"
+              className={({ isActive }) => classNames({ on: isActive })}
+            >
               <IoSearch />
             </button>
           </form>
         </div>
       </section>
+      <MainMenu />
     </HeaderBox>
   );
 };

@@ -1,5 +1,5 @@
 export const color = {
-  primary: '#007bff',
+  primary: '#B95AFF',
   secondary: '#6c757d;',
   success: '#28a745;',
   danger: '#dc3545;',
@@ -7,6 +7,7 @@ export const color = {
   info: '#17a2b8;',
   light: '#f8f9fa;',
   dark: '#343a40;',
+  purple: '#BFA0ED',
 };
 
 export const buttonColor = {
@@ -18,4 +19,5 @@ export const buttonColor = {
   info: [color.info, '#fff'],
   light: [color.light, '#212529'],
   dark: [color.dark, '#fff'],
+  purple: [color.purple, '#BFA0ED'],
 };
