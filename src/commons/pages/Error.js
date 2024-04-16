@@ -8,7 +8,7 @@ class ErrorPage extends Component {
     message: '',
   };
 
-  componenetDidCatch(error, info) {
+  componentDidCatch(error, info) {
     if (error) {
       this.setState({ message: error.message });
       console.error(error, info);

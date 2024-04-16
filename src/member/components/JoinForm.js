@@ -2,8 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { styled } from 'styled-components';
 import { FaCheckSquare, FaRegCheckSquare } from 'react-icons/fa';
-import { BigButton, ButtonGroup } from './Button';
-import InputBox from '../components/InputBox';
+import { BigButton, ButtonGroup } from '../../commons/components/Button';
+import InputBox from '../../commons/components/InputBox';
 
 const FormBox = styled.form``;
 
