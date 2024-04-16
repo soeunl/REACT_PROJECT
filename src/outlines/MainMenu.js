@@ -25,6 +25,10 @@ const MenuBox = styled.nav`
         &.on {
             background: ${primary}
         }
+
+        &:hover {
+          background: ${primary};
+        }
     }
   }
 `;

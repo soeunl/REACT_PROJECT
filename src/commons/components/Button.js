@@ -1,7 +1,10 @@
 import styled, { css } from 'styled-components';
 import { buttonColor } from '../../styles/color';
 import fontSize from '../../styles/fontSize';
+import { color } from '../../styles/color';
+
 const { big } = fontSize;
+const { primary } = color;
 
 export const BigButton = styled.button`
   font-size: ${big};
@@ -17,6 +20,10 @@ export const BigButton = styled.button`
       color: ${buttonColor[color][1]};
       border: 1px solid ${buttonColor[color][2]};
     `}
+
+  &:hover {
+    background: ${primary};
+  }
 `;
 
 export const ButtonGroup = styled.div`
