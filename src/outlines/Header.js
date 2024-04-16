@@ -48,7 +48,7 @@ const HeaderBox = styled.header`
         button {
           width: 45px;
           background: ${purple};
-          border: 2px solid ${dark};
+          border: 1px solid ${dark};
           border-left: none;
           margin-right: 10px;
           cursor: pointer;
@@ -67,7 +67,7 @@ const HeaderBox = styled.header`
 
         input[type='text'] {
           flex-grow: 1;
-          border: 2px solid ${dark};
+          border: 1px solid ${dark};
           border-bottom-left-radius: 10px;
           border-top-left-radius: 10px;
           padding: 0 10px;
