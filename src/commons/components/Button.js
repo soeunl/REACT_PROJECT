@@ -4,7 +4,7 @@ import fontSize from '../../styles/fontSize';
 import { color } from '../../styles/color';
 
 const { big } = fontSize;
-const { primary } = color;
+const { primary, light } = color;
 
 export const BigButton = styled.button`
   font-size: ${big};
@@ -23,6 +23,7 @@ export const BigButton = styled.button`
 
   &:hover {
     background: ${primary};
+    color: ${light};
   }
 `;
 

@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { color } from '../styles/color';
 import fontSize from '../styles/fontSize';
 
-const { primary, light, purple } = color;
+const { primary, light, purple, dark } = color;
 const { medium } = fontSize;
 
 const MenuBox = styled.nav`
@@ -17,18 +17,20 @@ const MenuBox = styled.nav`
     height: 50px;
 
     a {
-        color: : ${light};
-        line-height: 50px;
-        padding: 0 50px;
-        font-size: ${medium};
+      color: ${dark};
+      line-height: 50px;
+      padding: 0 50px;
+      font-size: ${medium};
 
-        &.on {
-            background: ${primary}
-        }
+      &.on {
+        background: ${primary};
+        color: ${light};
+      }
 
-        &:hover {
-          background: ${primary};
-        }
+      &:hover {
+        background: ${primary};
+        color: ${light};
+      }
     }
   }
 `;
