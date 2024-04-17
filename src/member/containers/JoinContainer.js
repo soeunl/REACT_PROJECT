@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import JoinForm from '../components/JoinForm';
 
@@ -13,6 +13,8 @@ const JoinContainer = () => {
   const [errors, setErrors] = useState({});
 
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
 
   /**
   회원 가입 처리
@@ -29,7 +31,7 @@ const JoinContainer = () => {
 
   const onSubmit = useCallback(
     (e) => {
-      e.preventDefault();
+      e.preventDefault(); // 페이지 이동 하지 않음
 
       const _errors = {};
       let hasErrors = false; // 에러 유무
@@ -45,9 +47,13 @@ const JoinContainer = () => {
 
       for (const [field, msg] of Object.entries(requiredFields)) {
         // !form[field] - null, undefined, '' 체크, !form[field].trim() - '    '
-        if (!form[field] || !form[field].trim()) {
-          _errors[field] = _errors[field] || [];
+        if (
+          !form[field] ||
+          (typeof form[field] == 'string' && !form[field].trim())
+        ) {
+          _errors[field] = _errors[field] || []; // 검증 메세지가 여러개 일수도 있으므로 배열 형태로 입력
           _errors[field].push(msg);
+          hasErrors = true;
         }
       }
 
@@ -67,16 +73,15 @@ const JoinContainer = () => {
       setErrors(_errors);
       if (hasErrors) {
         //  검증 실패 시 가입 처리X
-        return;
+        return; // 함수 종료
       }
 
       /* 가입처리 */
 
       /* 가입 완료 후 로그인 페이지 이동 */
-      Navigate('/member/login', { replace: true }); // replace: true -> 방문기록 남기지X
+      navigate('/member/login', { replace: true }); // replace: true -> 방문기록 남기지X // 양식이 처리되지 않기 위함
     },
-    [t, form],
-    Navigate,
+    [t, form, navigate],
   );
 
   const onChange = useCallback((e) => {
