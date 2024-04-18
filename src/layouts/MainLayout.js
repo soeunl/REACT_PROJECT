@@ -5,7 +5,8 @@ import Footer from '../outlines/Footer';
 import styled from 'styled-components';
 
 const MainBox = styled.main`
-  min-height: 700px;
+  min-height: 650px;
+  position: relative;
 `;
 
 const MainLayout = () => {
