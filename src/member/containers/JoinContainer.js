@@ -49,7 +49,7 @@ const JoinContainer = () => {
         // !form[field] - null, undefined, '' 체크, !form[field].trim() - '    '
         if (
           !form[field] ||
-          (typeof form[field] == 'string' && !form[field].trim())
+          (typeof form[field] == 'string' && !form[field].trim()) //.trim() 메서드는 문자열 밖에 없다
         ) {
           _errors[field] = _errors[field] || []; // 검증 메세지가 여러개 일수도 있으므로 배열 형태로 입력
           _errors[field].push(msg);

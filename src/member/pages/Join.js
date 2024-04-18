@@ -11,10 +11,10 @@ const Join = () => {
   return (
     <>
       <Helmet>
-        <title>{t('회원가입')}</title>
+        <title>{t('💜회원가입💜')}</title>
       </Helmet>
       <OuterBox>
-        <MainTitle>{t('회원가입')}</MainTitle>
+        <MainTitle>{t('💜회원가입💜')}</MainTitle>
         <JoinContainer />
       </OuterBox>
     </>

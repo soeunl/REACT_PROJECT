@@ -10,6 +10,7 @@ const Box = styled.div`
   font-size: ${small};
   border-radius: 3px;
   color: ${color.dark};
+  margin-bottom: 5px;
 
   & + & {
     margin-top: 5px;
