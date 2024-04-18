@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { Link, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { IoSearch } from 'react-icons/io5';
+
+import { FaSearch } from 'react-icons/fa';
+
 import fontSize from '../styles/fontSize';
 import { color } from '../styles/color';
 import logo from '../images/logo.png';
 import MainMenu from './MainMenu';
+import UserInfoContext from '../member/modules/UserInfoContext';
 
 const { primary, dark, light, purple } = color;
 
@@ -79,23 +82,50 @@ const HeaderBox = styled.header`
 
 const Header = () => {
   const { t } = useTranslation();
+  const {
+    states: { isLogin, userInfo },
+  } = useContext(UserInfoContext);
 
   return (
     <HeaderBox>
       <section className="site-top">
         <div className="layout-width">
-          <NavLink
-            to="/member/join"
-            className={({ isActive }) => classNames({ on: isActive })}
-          >
-            {t('회원가입')}
-          </NavLink>
-          <NavLink
-            to="/member/login"
-            className={({ isActive }) => classNames({ on: isActive })}
-          >
-            {t('로그인')}
-          </NavLink>
+          {isLogin ? (
+            <>
+              {/* 로그인 상태 */}
+              <span>
+                {userInfo.name}({userInfo.email}){t('님_로그인')}
+              </span>
+              <NavLink
+                to="/mypage"
+                className={({ isActive }) => classNames({ on: isActive })}
+              >
+                {t('마이페이지')}
+              </NavLink>
+              <NavLink
+                to="/member/logout"
+                className={({ isActive }) => classNames({ on: isActive })}
+              >
+                {t('로그아웃')}
+              </NavLink>
+            </>
+          ) : (
+            <>
+              {/* 미로그인 상태 */}
+              <NavLink
+                to="/member/join"
+                className={({ isActive }) => classNames({ on: isActive })}
+              >
+                {t('회원가입')}
+              </NavLink>
+              <NavLink
+                to="/member/login"
+                className={({ isActive }) => classNames({ on: isActive })}
+              >
+                {t('로그인')}
+              </NavLink>
+            </>
+          )}
         </div>
       </section>
       <section className="logo-search">
@@ -107,7 +137,7 @@ const Header = () => {
           <form autoComplete="off">
             <input type="text"></input>
             <button type="submit">
-              <IoSearch />
+              <FaSearch />
             </button>
           </form>
         </div>
